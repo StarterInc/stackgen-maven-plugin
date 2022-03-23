@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.starter</groupId>
+    <artifactId>stackgen-maven-plugin-test</artifactId>
+    <version>0.9.31-SNAPSHOT</version>
+    <name>Test Starter StackGen Maven Plugin</name>
+
+    <properties>
+        <stackgen.version>${project.version}</stackgen.version>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
+        <stackgen.version>0.9.31-SNAPSHOT</stackgen.version>
+        <aspectjplugin.version>1.12.9</aspectjplugin.version>
+        <aspectj.version>1.9.2</aspectj.version>
+        <spring.security.oauth>2.3.5.RELEASE</spring.security.oauth>
+        <spring.boot.admin.version>2.4.0</spring.boot.admin.version>
+        <springfox-version>2.9.2</springfox-version>
+    </properties>
+
+    <dependencies>
+
+        <!-- StackGen Deps-->
+        <dependency>
+            <groupId>io.starter</groupId>
+            <artifactId>stackgen-pro</artifactId>
+            <version>${stackgen.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.starter</groupId>
+            <artifactId>stackgen</artifactId>
+            <version>${stackgen.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.starter</groupId>
+            <artifactId>stackgen-maven-plugin</artifactId>
+            <version>${stackgen.version}</version>
+        </dependency>
+
+        <!-- End StackGen Deps-->
+
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>3.6.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugin-testing</groupId>
+            <artifactId>maven-plugin-testing-harness</artifactId>
+            <version>3.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.13.0</version>
+        </dependency>
+
+
+        <!-- Bean Validation API support -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- -->
+            <plugin>
+                <groupId>io.starter</groupId>
+                <artifactId>stackgen-maven-plugin</artifactId>
+                <version>0.9.31-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+
+                    </execution>
+                </executions>
+
+                <configuration>
+
+                    <starterIgniteSecureKey>W3ngNBCp80mgG0wwjTslfeQoG2hQa9ryqbemTEX01Wg\=</starterIgniteSecureKey>
+
+
+                    <dbUrl>jdbc:mysql://db-dev.stackgen.io</dbUrl>
+                    <dbName>sg-dev</dbName>
+                    <dbDriver>com.mysql.cj.jdbc.Driver</dbDriver>
+                    <dbPassword>${sg.db.password}</dbPassword>
+
+
+                    <lang>java-spring</lang>
+                    <orgPackage>io.happypath</orgPackage>
+                    <adminUser>admin</adminUser>
+                    <adminPassword>pass</adminPassword>
+                    <artifactId>HappyPathRevenge</artifactId>
+                    <asrtifactVersion>1.0.0-SNAPSHOT</asrtifactVersion>
+                    <dbGenDropTable>false</dbGenDropTable>
+                    <templateDir>/Users/johnmcmahon/workspace/sg-template-java_spring_mybatis_react_redux/src/main/java/spring-boot</templateDir>
+                    <javaGenFolderName>/generated-sources/src/test/java</javaGenFolderName>
+                    <dbName>HappyPath</dbName>
+                    <genOutputFolder>${project.basedir}/generated-sources</genOutputFolder>
+                    <inputSpec>simple_cms.yml</inputSpec>
+
+                    <REACT_APP_NAME>HAPPYREVENGER</REACT_APP_NAME>
+                    <REACT_TEMPLATE_FOLDER>/Users/johnmcmahon/workspace/sg-template-java_spring_mybatis_react_redux/src/main/react</REACT_TEMPLATE_FOLDER>
+                    <REACT_APP_OUTPUT_FOLDER>${project.basedir}/generated-sources</REACT_APP_OUTPUT_FOLDER>
+
+                    <dbGenDropTable>true</dbGenDropTable>
+
+                    <skipBackendGen>false</skipBackendGen>
+                    <skipDbGen>false</skipDbGen>
+                    <skipJavaGen>false</skipJavaGen>
+                    <skipMybatisGen>false</skipMybatisGen>
+                    <skipReactGen>false</skipReactGen>
+
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
