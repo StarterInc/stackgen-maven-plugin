@@ -21,7 +21,7 @@
   <properties>
     <stackgen.version>${project.version}</stackgen.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.version>3.3.9</maven.version>
+    <maven.version>3.6.0</maven.version>
     <maven.compiler.source>14</maven.compiler.source>
     <maven.compiler.target>14</maven.compiler.target>
 
